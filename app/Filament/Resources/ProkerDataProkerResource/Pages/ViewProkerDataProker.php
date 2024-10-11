@@ -19,6 +19,7 @@ use Filament\Tables\Columns\TextColumn;
 class ViewProkerDataProker extends ViewRecord
 {
     protected static string $resource = ProkerDataProkerResource::class;
+    protected static ?string $title = 'Data Program Kerja';
 
     protected function getHeaderActions(): array
     {

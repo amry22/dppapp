@@ -9,6 +9,7 @@ use Filament\Resources\Pages\EditRecord;
 class EditProkerDataReport extends EditRecord
 {
     protected static string $resource = ProkerDataReportResource::class;
+    protected static ?string $title = 'Edit Laporan';
 
     protected function getHeaderActions(): array
     {

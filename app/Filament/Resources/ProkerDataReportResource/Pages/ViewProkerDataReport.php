@@ -9,6 +9,7 @@ use Filament\Resources\Pages\ViewRecord;
 class ViewProkerDataReport extends ViewRecord
 {
     protected static string $resource = ProkerDataReportResource::class;
+    protected static ?string $title = 'Data Laporan';
 
     protected function getHeaderActions(): array
     {

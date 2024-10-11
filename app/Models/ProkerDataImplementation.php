@@ -11,6 +11,7 @@ class ProkerDataImplementation extends Model
 
     protected $casts = [
         'timeline' => 'array',
+        'budget_source' => 'array',
     ];
 
     protected $fillable = [

@@ -9,6 +9,7 @@ use Filament\Resources\Pages\ListRecords;
 class ListProkerDataReports extends ListRecords
 {
     protected static string $resource = ProkerDataReportResource::class;
+    protected static ?string $title = 'Data Laporan';
 
     protected function getHeaderActions(): array
     {

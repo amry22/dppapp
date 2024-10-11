@@ -8,6 +8,7 @@ use App\Filament\Resources\ProkerDataProkerResource\RelationManagers\ProkerDataI
 use App\Models\ProkerDataProker;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -31,7 +32,12 @@ class ProkerDataProkerResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')->label('Program Kerja')->required(),
+                Textarea::make('name')->label('Program Kerja')->required()
+                ->columnSpan([
+                    'sm' => 2,
+                    'xl' => 3,
+                    '2xl' => 4,
+                ]),
                 TextInput::make('division')->label('Bidang')->placeholder(Auth::user()->division->name)->readOnly(),
                 TextInput::make('departement')->label('Departemen')->default(Auth::user()->department->name ?? 0)->readOnly()->visible(Auth::user()->department_id != null),
                 Select::make('year')
@@ -53,7 +59,7 @@ class ProkerDataProkerResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')->label('Program Kerja'),
+                TextColumn::make('name')->label('Program Kerja')->searchable(),
                 TextColumn::make('division.name')->label('Bidang')->badge(),
                 TextColumn::make('department.name')->label('Departemen')->badge(),
             ])

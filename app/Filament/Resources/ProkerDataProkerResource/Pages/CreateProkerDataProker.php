@@ -14,8 +14,9 @@ class CreateProkerDataProker extends CreateRecord
 {
 
     public $divisionId = 0;
-    
+
     protected static string $resource = ProkerDataProkerResource::class;
+    protected static ?string $title = 'Tambah Program Kerja';
 
     protected function handleRecordCreation(array $data) : Model {
         return static::getModel()::create([

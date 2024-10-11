@@ -9,4 +9,5 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateDataDepartment extends CreateRecord
 {
     protected static string $resource = DataDepartmentResource::class;
+    protected static ?string $title = 'Tambah Departemen';
 }

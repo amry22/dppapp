@@ -9,4 +9,5 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateDataDivision extends CreateRecord
 {
     protected static string $resource = DataDivisionResource::class;
+    protected static ?string $title = 'Tambah Bidang';
 }

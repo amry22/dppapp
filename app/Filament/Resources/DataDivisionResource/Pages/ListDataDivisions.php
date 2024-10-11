@@ -9,6 +9,7 @@ use Filament\Resources\Pages\ListRecords;
 class ListDataDivisions extends ListRecords
 {
     protected static string $resource = DataDivisionResource::class;
+    protected static ?string $title = 'Data Bidang';
 
     protected function getHeaderActions(): array
     {

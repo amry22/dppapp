@@ -9,6 +9,7 @@ use Filament\Resources\Pages\EditRecord;
 class EditDataDivision extends EditRecord
 {
     protected static string $resource = DataDivisionResource::class;
+    protected static ?string $title = 'Edit Bidang';
 
     protected function getHeaderActions(): array
     {

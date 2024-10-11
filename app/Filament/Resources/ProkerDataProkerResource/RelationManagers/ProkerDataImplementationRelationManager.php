@@ -4,6 +4,7 @@ namespace App\Filament\Resources\ProkerDataProkerResource\RelationManagers;
 
 use Filament\Forms;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
@@ -16,16 +17,18 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class ProkerDataImplementationRelationManager extends RelationManager
 {
     protected static string $relationship = 'implementation';
+    protected static ?string $title = 'Data Implementasi';
 
     public function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->label('Implementasi')
+                Textarea::make('name')->label('Implementasi')
                     ->required()
                     ->maxLength(255),
-                TextInput::make('target')->required()->label('Target'),
+                Textarea::make('target')->required()->label('Target'),
                 Select::make('timeline')->label('Bulan')->options([
+                    'Isidentil' => 'Isidentil',
                     'Januari' => 'Januari',
                     'Februari' => 'Februari',
                     'Maret' => 'Maret',
@@ -37,15 +40,18 @@ class ProkerDataImplementationRelationManager extends RelationManager
                     'September' => 'September',
                     'Oktober' => 'Oktober',
                     'November' => 'November',
-                    'Desember' => 'Desember'
+                    'Desember' => 'Desember'  
                 ])->multiple()->required()->native(false),
                 TextInput::make('budget')->label('Anggaran')->numeric()->required(),
                 Select::make('budget_source')->label('Sumber Dana')
                     ->options([
-                        'Internal' => 'Internal',
+                        'APBO' => 'APBO',
+                        'BMH' => 'BMH',
+                        'BUMO' => 'BUMO',
+                        'DPW' => 'DPW',
+                        'DPD' => 'DPD',
                         'External' => 'External',
-                    ])
-                    ->native(false)->required()
+                    ])->multiple()->required()->native(false)
             ]);
     }
 
@@ -53,16 +59,13 @@ class ProkerDataImplementationRelationManager extends RelationManager
     {
         return $table
             ->recordTitleAttribute('name')
-            ->heading('Implementasi')
+            ->heading('')
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                TextColumn::make('target'),
-                TextColumn::make('timeline')->badge(),
-                TextColumn::make('budget')->money('Rp. '),
-                TextColumn::make('budget_source')->badge()->color(fn (string $state): string => match ($state) {
-                    'Internal' => 'info',
-                    'External' => 'warning',
-                }),
+                Tables\Columns\TextColumn::make('name')->label('Implementasi'),
+                TextColumn::make('target')->label('Target'),
+                TextColumn::make('timeline')->badge()->label('Bulan'),
+                TextColumn::make('budget')->money('Rp. ')->label('Anggaran'),
+                TextColumn::make('budget_source')->badge()->label('Sumber Dana'),
             ])
             ->filters([
                 //

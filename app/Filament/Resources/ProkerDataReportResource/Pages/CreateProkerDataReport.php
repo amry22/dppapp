@@ -9,4 +9,5 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateProkerDataReport extends CreateRecord
 {
     protected static string $resource = ProkerDataReportResource::class;
+    protected static ?string $title = 'Tambah Laporan';
 }
