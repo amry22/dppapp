@@ -69,7 +69,7 @@ class ProkerDataImplementationRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('name')->label('Implementasi'),
                 TextColumn::make('target')->label('Target'),
                 TextColumn::make('timeline')->badge()->label('Bulan'),
-                TextColumn::make('budget')->money('Rp. ')->label('Anggaran'),
+                TextColumn::make('budget')->money('IDR')->label('Anggaran'),
                 TextColumn::make('budget_source')->badge()->label('Sumber Dana'),
             ])
             ->filters([

@@ -8,6 +8,7 @@ use App\Models\ProkerDataImplementation;
 use App\Models\ProkerDataProker;
 use App\Models\ProkerDataReport;
 use Filament\Forms;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Form;
@@ -32,6 +33,8 @@ class ProkerDataReportResource extends Resource
     {
         return $form
             ->schema([
+                Hidden::make('division_id')->default(Auth::user()->division_id),
+                Hidden::make('department_id')->default(Auth::user()->department_id),
                 Textarea::make('proker')
                     ->label('Program Kerja')
                     ->autosize()
@@ -77,6 +80,7 @@ class ProkerDataReportResource extends Resource
     {
         return $table
             ->columns([
+                
                 Tables\Columns\TextColumn::make('implementation.name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('implementation.proker.name') 

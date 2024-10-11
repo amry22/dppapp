@@ -18,7 +18,7 @@ class StatsOverview extends BaseWidget
         return [
             Stat::make('Total Program Kerja', $totalProker),
             Stat::make('Total Implementasi', $totalImplementation),
-            Stat::make('Total Anggaran', $totalBudged),
+            Stat::make('Total Anggaran', "Rp " . number_format($totalBudged, 2, ",", ".")),
         ];
     }
 }
