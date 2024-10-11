@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('proker_data_implementations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('proker_data_prokers_id')->constrained('proker_data_prokers')->cascadeOnDelete();
+            $table->foreignId('division_id')->constrained('data_divisions');
+            $table->foreignId('department_id')->nullable()->constrained('data_departments');
             $table->string('name');
             $table->string('target');
             $table->string('timeline');
