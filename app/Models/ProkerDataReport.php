@@ -11,6 +11,8 @@ class ProkerDataReport extends Model
 
     protected $fillable = [
         'proker_data_implementations_id',
+        'division_id',
+        'department_id',
          "status",
          "description",
          "follow_up"

@@ -2,7 +2,9 @@
 
 namespace App\Filament\Resources\ProkerDataProkerResource\RelationManagers;
 
+use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -24,7 +26,8 @@ class ProkerDataImplementationRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                
+                Hidden::make('division_id')->default(Auth::user()->division_id),
+                Hidden::make('department_id')->default(Auth::user()->department_id),
                 Textarea::make('name')->label('Implementasi')
                     ->required()
                     ->maxLength(255),

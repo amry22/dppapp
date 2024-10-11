@@ -18,12 +18,17 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Super Admin',
-            'email' => 'admin@admin.com',
-            'password' => bcrypt('admin'),
-            'role_id' => '1'
-        ]);
+        User::factory()->create(
+            [
+                'name' => 'Super Admin',
+                'email' => 'admin@admin.com',
+                'password' => bcrypt('admin'),
+                'role_id' => '1',
+            ],
+            
+            
+        );
+        
 
         ItemRoles::insert([
             [
@@ -104,11 +109,11 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'data_division_id' => '3',
-                'name' => 'Departemen Sumberdaya Insani'
+                'name' => 'Departemen Sumber Daya Insani'
             ],
             [
                 'data_division_id' => '3',
-                'name' => 'Departemen Hubungan Antarbangsa'
+                'name' => 'Departemen Hubungan Antar Bangsa'
             ],
             [
                 'data_division_id' => '3',
@@ -117,6 +122,10 @@ class DatabaseSeeder extends Seeder
             [
                 'data_division_id' => '3',
                 'name' => 'Departemen Hukum'
+            ],
+            [
+                'data_division_id' => '3',
+                'name' => 'Hidayatullah Institute'
             ],
             [
                 'data_division_id' => '4',

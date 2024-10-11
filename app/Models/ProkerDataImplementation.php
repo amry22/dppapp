@@ -16,6 +16,8 @@ class ProkerDataImplementation extends Model
 
     protected $fillable = [
         'proker_data_prokers_id',
+        'division_id',
+        'department_id',
         'name',
         'target',
         'timeline',
