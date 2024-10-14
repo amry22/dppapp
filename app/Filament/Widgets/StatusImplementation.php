@@ -53,7 +53,7 @@ class StatusImplementation extends BaseWidget
             ])
            
             ->actions([
-                Tables\Actions\ViewAction::make(),
+                // Tables\Actions\ViewAction::make(),
                 // Tables\Actions\EditAction::make(),
             ])
             ;

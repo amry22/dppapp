@@ -25,6 +25,7 @@ class DataDepartmentResource extends Resource
     protected static ?int $navigationSort = 3;
     protected static ?string $navigationGroup = 'Master Data';
     protected static ?string $navigationLabel = 'Data Departemen';
+    protected static ?string $breadcrumb = 'Departemen';
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
     public static function form(Form $form): Form

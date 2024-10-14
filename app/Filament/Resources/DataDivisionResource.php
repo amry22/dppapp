@@ -22,6 +22,7 @@ class DataDivisionResource extends Resource
     protected static ?int $navigationSort = 2;
     protected static ?string $navigationGroup = 'Master Data';
     protected static ?string $navigationLabel = 'Data Bidang';
+    protected static ?string $breadcrumb = 'Bidang';
     protected static ?string $navigationIcon = 'heroicon-o-user';
 
     public static function form(Form $form): Form

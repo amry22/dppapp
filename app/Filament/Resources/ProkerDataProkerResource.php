@@ -27,13 +27,20 @@ class ProkerDataProkerResource extends Resource
 
     protected static ?int $navigationSort = 1;
     protected static ?string $navigationGroup = 'Proker';
+    protected static ?string $breadcrumb = 'Program Kerja';
     protected static ?string $navigationLabel = 'Program Kerja';
     protected static ?string $navigationIcon = 'heroicon-o-document-chart-bar';
 
     public static function form(Form $form): Form
     {
+        $departmenName = '';
+        if (Auth::user()->department_id != null) {
+            $departmenName = Auth::user()->department->name;
+        }
         return $form
+
             ->schema([
+                
                 Textarea::make('name')->label('Program Kerja')->required()
                 ->columnSpan([
                     'sm' => 2,
@@ -41,7 +48,7 @@ class ProkerDataProkerResource extends Resource
                     '2xl' => 4,
                 ]),
                 TextInput::make('division')->label('Bidang')->placeholder(Auth::user()->division->name)->readOnly(),
-                TextInput::make('department')->label('Departemen')->placeholder(Auth::user()->department->name)->readOnly()->visible(Auth::user()->department_id != null),
+                TextInput::make('department')->label('Departemen')->visible(Auth::user()->department_id != null)->placeholder($departmenName)->readOnly(),
                 // TextInput::make('departement')->label('Departemen')->default(Auth::user()->division->name)->readOnly()->visible(Auth::user()->department_id != null),
                 Select::make('year')
                     ->native(false)
