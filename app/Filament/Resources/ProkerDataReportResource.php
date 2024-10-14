@@ -90,6 +90,7 @@ class ProkerDataReportResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('status')
                     ->searchable()
+                    ->sortable()
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'Terlaksana' => 'success',

@@ -27,4 +27,8 @@ class ProkerDataProker extends Model
     function implementation() {
         return $this->hasMany(ProkerDataImplementation::class, 'proker_data_prokers_id', 'id');
     }
+
+   
+    
+    
 }

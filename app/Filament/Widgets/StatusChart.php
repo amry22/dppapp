@@ -9,6 +9,7 @@ use Filament\Widgets\ChartWidget;
 class StatusChart extends ChartWidget
 {
     protected static ?string $heading = 'Status Implementasi';
+    protected static ?int $sort = 2;
 
     protected function getData(): array
     {

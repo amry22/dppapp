@@ -32,4 +32,8 @@ class ProkerDataImplementation extends Model
     function report(){
         return $this->hasOne(ProkerDataReport::class, 'proker_data_implementations_id', 'id');
     }
+
+    function getTimeline($bulan)  {
+        return $this->ProkerDataImplementation::where(filterRole())->where('timeline', $bulan)->get();
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ProkerDataProkerResource\Pages;
 use App\Filament\Resources\ProkerDataProkerResource\RelationManagers;
 use App\Filament\Resources\ProkerDataProkerResource\RelationManagers\ProkerDataImplementationRelationManager;
+use App\Models\ProkerDataImplementation;
 use App\Models\ProkerDataProker;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
@@ -13,6 +14,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ColorColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -39,7 +41,8 @@ class ProkerDataProkerResource extends Resource
                     '2xl' => 4,
                 ]),
                 TextInput::make('division')->label('Bidang')->placeholder(Auth::user()->division->name)->readOnly(),
-                TextInput::make('departement')->label('Departemen')->default(Auth::user()->department->name ?? 0)->readOnly()->visible(Auth::user()->department_id != null),
+                TextInput::make('department')->label('Departemen')->placeholder(Auth::user()->department->name)->readOnly()->visible(Auth::user()->department_id != null),
+                // TextInput::make('departement')->label('Departemen')->default(Auth::user()->division->name)->readOnly()->visible(Auth::user()->department_id != null),
                 Select::make('year')
                     ->native(false)
                     ->default(now()->format('Y'))
@@ -59,7 +62,9 @@ class ProkerDataProkerResource extends Resource
     {
         return $table
             ->columns([
+                
                 TextColumn::make('name')->label('Program Kerja')->searchable(),
+                TextColumn::make('implementation_count')->counts('implementation')->label('Implementasi'),
                 TextColumn::make('division.name')->label('Bidang')->badge(),
                 TextColumn::make('department.name')->label('Departemen')->badge(),
             ])

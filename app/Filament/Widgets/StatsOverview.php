@@ -9,6 +9,9 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class StatsOverview extends BaseWidget
 {
+    protected static ?int $sort = 1;
+    public static string $resource = ProkerDataProker::class;
+    
     protected function getStats(): array
     {
         $totalProker = ProkerDataProker::where(filterRole())->count();

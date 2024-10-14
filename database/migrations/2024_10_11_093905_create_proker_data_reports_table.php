@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('proker_data_reports', function (Blueprint $table) {
             $table->id();
-            $table->integer('proker_data_implementations_id');
+            $table->foreignId('proker_data_implementations_id')->constrained('proker_data_implementations')->cascadeOnDelete();
             $table->foreignId('division_id')->constrained('data_divisions');
             $table->foreignId('department_id')->nullable()->constrained('data_departments');
             $table->string("status");
