@@ -17,10 +17,13 @@ return new class extends Migration
             $table->foreignId('division_id')->constrained('data_divisions');
             $table->foreignId('department_id')->nullable()->constrained('data_departments');
             $table->string('name');
-            $table->string('target');
+            $table->string('qualitative');
+            $table->string('quantitative');
             $table->string('timeline');
             $table->string('budget');
-            $table->string('budget_source');
+            $table->foreignId('budget_source_item_id')->constrained('budget_source_item');
+            $table->boolean('is_acc')->default('false');
+            $table->boolean('is_budget_acc')->default('false');
             $table->timestamps();
         });
     }

@@ -4,7 +4,11 @@ namespace Database\Seeders;
 
 use App\Models\DataDepartment;
 use App\Models\DataDivision;
+use App\Models\ItemButgetSource;
+use App\Models\ItemCategoryTarget;
 use App\Models\ItemRoles;
+use App\Models\ItemTimeline;
+use App\Models\ListItemCategoryTarget;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -30,7 +34,7 @@ class DatabaseSeeder extends Seeder
         );
 
         User::insert([
-            ['id' => '2','name' => 'Ir. Abu A’la Abdullah, M.HI','email' => 'tarbiyah@hidayatullah.app','email_verified_at' => NULL,'password' => '$2y$12$oKSC.rGcqWUeOxbX1OJNA./9ypDVeCb1tYDy91TLzv1aaHX/Qz20W','role_id' => '2','division_id' => '1','department_id' => NULL,'remember_token' => NULL,'created_at' => '2024-10-11 17:41:14','updated_at' => '2024-10-11 17:41:14'],
+            ['id' => '2','name' => "Ir. Abu A’la Abdullah, M.HI",'email' => 'tarbiyah@hidayatullah.app','email_verified_at' => NULL,'password' => '$2y$12$oKSC.rGcqWUeOxbX1OJNA./9ypDVeCb1tYDy91TLzv1aaHX/Qz20W','role_id' => '2','division_id' => '1','department_id' => NULL,'remember_token' => NULL,'created_at' => '2024-10-11 17:41:14','updated_at' => '2024-10-11 17:41:14'],
             ['id' => '3','name' => 'Drs. Nursyamsa Hadis','email' => 'yanmat@hidayatullah.app','email_verified_at' => NULL,'password' => '$2y$12$LXO0bvgZMaIltT6UU.rO..9mgFb9Uuec63jfdYDPd6BYWNYku1bUa','role_id' => '2','division_id' => '2','department_id' => NULL,'remember_token' => 'qZMtTW1Re7SG2LwVjlQKsT9JSEX7thkqkoEhTAD6FEjDfjuKynSv7tZb00g5','created_at' => '2024-10-11 17:41:36','updated_at' => '2024-10-11 17:41:36'],
             ['id' => '4','name' => 'Asih Subagyo, S.Kom','email' => 'ppo@hidayatullah.app','email_verified_at' => NULL,'password' => '$2y$12$MVeW.zxjPEyral.iS5j6ZetSeOqaqfKRdBzjcCkekIgjET6BWtSz.','role_id' => '2','division_id' => '3','department_id' => NULL,'remember_token' => NULL,'created_at' => '2024-10-11 17:42:01','updated_at' => '2024-10-11 17:42:01'],
             ['id' => '5','name' => 'Drs. Wahyu Rahman, MM','email' => 'ekonomi@hidayatullah.app','email_verified_at' => NULL,'password' => '$2y$12$PKQ/I3sWpTkOppMhVIdKIuuuQsd0J9ur.MoyAh/aW35UL/l.DOCIO','role_id' => '2','division_id' => '4','department_id' => NULL,'remember_token' => NULL,'created_at' => '2024-10-11 17:42:44','updated_at' => '2024-10-11 17:42:44'],
@@ -61,8 +65,133 @@ class DatabaseSeeder extends Seeder
             ['id' => '30','name' => 'Drs. Aghis Mahruri','email' => 'bendahara@hidayatullah.app','email_verified_at' => NULL,'password' => '$2y$12$C6FUyhkYo/GYOsCtWfygqOcrvSU8Znr49.pRX4EhKs4Fy45BzvwQG','role_id' => '3','division_id' => '6','department_id' => '23','remember_token' => NULL,'created_at' => '2024-10-11 17:54:58','updated_at' => '2024-10-11 17:54:58'],
             ['id' => '31','name' => 'Islah','email' => 'pko@hidayatullah.app','email_verified_at' => NULL,'password' => '$2y$12$XAIKYLZG9olEX9J1f2sil.ABdzEP3BkFQgDa4wF80OZbfqCIJX3Jy','role_id' => '3','division_id' => '6','department_id' => '24','remember_token' => NULL,'created_at' => '2024-10-11 17:55:23','updated_at' => '2024-10-11 17:55:23']
         ]);
-        
 
+        ItemTimeline::insert([
+            [
+                'name' => 'Isidentil'
+            ],
+            [
+                'name' => 'Januari'
+            ],
+            [
+                'name' => 'Februari'
+            ],
+            [
+                'name' => 'Maret'
+            ],
+            [
+                'name' => 'April'
+            ],
+            [
+                'name' => 'Mei'
+            ],
+            [
+                'name' => 'Juni'
+            ],
+            [
+                'name' => 'Juli'
+            ],
+            [
+                'name' => 'Agustus'
+            ],
+            [
+                'name' => 'September'
+            ],
+            [
+                'name' => 'Oktober'
+            ],
+            [
+                'name' => 'November'
+            ],
+            [
+                'name' => 'Desember'
+            ],
+        ]);
+
+        ItemCategoryTarget::insert([
+            [
+                'name' => 'DPW'
+            ],
+            [
+                'name' => 'KI/KU'
+            ],
+            [
+                'name' => 'Orpen'
+            ],
+            [
+                'name' => 'Badan dan Amal Usaha'
+            ],
+            [
+                'name' => 'PDH'
+            ],
+            [
+                'name' => 'Lainnya'
+            ],
+        ]);
+
+        ListItemCategoryTarget::insert([
+                ['name' => 'Aceh', 'item_category_target_id' => '1'],
+                ['name' => 'Sumatera Utara', 'item_category_target_id' => '1'],
+                ['name' => 'Sumatera Barat', 'item_category_target_id' => '1'],
+                ['name' => 'Riau', 'item_category_target_id' => '1'],
+                ['name' => 'Jambi', 'item_category_target_id' => '1'],
+                ['name' => 'Sumatera Selatan', 'item_category_target_id' => '1'],
+                ['name' => 'Bengkulu', 'item_category_target_id' => '1'],
+                ['name' => 'Lampung', 'item_category_target_id' => '1'],
+                ['name' => 'Kepulauan Bangka Belitung', 'item_category_target_id' => '1'],
+                ['name' => 'Kepulauan Riau', 'item_category_target_id' => '1'],
+                ['name' => 'Daerah Khusus Ibukota Jakarta', 'item_category_target_id' => '1'],
+                ['name' => 'Jawa Barat', 'item_category_target_id' => '1'],
+                ['name' => 'Jawa Tengah', 'item_category_target_id' => '1'],
+                ['name' => 'Daerah Istimewa Yogyakarta', 'item_category_target_id' => '1'],
+                ['name' => 'Jawa Timur', 'item_category_target_id' => '1'],
+                ['name' => 'Banten', 'item_category_target_id' => '1'],
+                ['name' => 'Bali', 'item_category_target_id' => '1'],
+                ['name' => 'Nusa Tenggara Barat', 'item_category_target_id' => '1'],
+                ['name' => 'Nusa Tenggara Timur', 'item_category_target_id' => '1'],
+                ['name' => 'Kalimantan Barat', 'item_category_target_id' => '1'],
+                ['name' => 'Kalimantan Tengah', 'item_category_target_id' => '1'],
+                ['name' => 'Kalimantan Selatan', 'item_category_target_id' => '1'],
+                ['name' => 'Kalimantan Timur', 'item_category_target_id' => '1'],
+                ['name' => 'Kalimantan Utara', 'item_category_target_id' => '1'],
+                ['name' => 'Sulawesi Utara', 'item_category_target_id' => '1'],
+                ['name' => 'Sulawesi Tengah', 'item_category_target_id' => '1'],
+                ['name' => 'Sulawesi Selatan', 'item_category_target_id' => '1'],
+                ['name' => 'Sulawesi Tenggara', 'item_category_target_id' => '1'],
+                ['name' => 'Gorontalo', 'item_category_target_id' => '1'],
+                ['name' => 'Sulawesi Barat', 'item_category_target_id' => '1'],
+                ['name' => 'Maluku', 'item_category_target_id' => '1'],
+                ['name' => 'Maluku Utara', 'item_category_target_id' => '1'],
+                ['name' => 'Papua', 'item_category_target_id' => '1'],
+                ['name' => 'Papua Barat', 'item_category_target_id' => '1'],
+                ['name' => 'Papua Selatan', 'item_category_target_id' => '1'],
+                ['name' => 'Papua Tengah', 'item_category_target_id' => '1'],
+                ['name' => 'Papua Pegunungan', 'item_category_target_id' => '1'],
+                ['name' => 'Papua Barat Daya', 'item_category_target_id' => '1'],
+                ['name' => 'Kampus Induk Gutem', 'item_category_target_id' => '2'],
+                ['name' => 'Kampus Utama Medan', 'item_category_target_id' => '2'],
+                ['name' => 'Kampus Utama Batam', 'item_category_target_id' => '2'],
+                ['name' => 'Kampus Utama Depok', 'item_category_target_id' => '2'],
+                ['name' => 'Kampus Utama Surabaya', 'item_category_target_id' => '2'],
+                ['name' => 'Kampus Utama Samarinda', 'item_category_target_id' => '2'],
+                ['name' => 'Kampus Utama Makassar', 'item_category_target_id' => '2'],
+                ['name' => 'Kampus Utama Timika', 'item_category_target_id' => '2'],
+                ['name' => 'Pemuda Hidayatullah', 'item_category_target_id' => '3'],
+                ['name' => 'Muslimat Hidayatullah', 'item_category_target_id' => '3'],
+                ['name' => 'BMH', 'item_category_target_id' => '4'],
+                ['name' => 'SAR', 'item_category_target_id' => '4'],
+                ['name' => 'LBH Hidayatullah', 'item_category_target_id' => '4'],
+                ['name' => 'LPH Hidayatullah', 'item_category_target_id' => '4'],
+                ['name' => 'SAI', 'item_category_target_id' => '4'],
+                ['name' => 'Baitul Wakaf', 'item_category_target_id' => '4'],
+                ['name' => 'LSH Hidayatullah', 'item_category_target_id' => '4'],
+                ['name' => "Pos Da'I", 'item_category_target_id' => '4'],
+                ['name' => 'TASK', 'item_category_target_id' => '4'],
+                ['name' => 'IMS', 'item_category_target_id' => '4'],
+                ['name' => 'Baitul Tanwil Hidayatullah', 'item_category_target_id' => '4'],
+                ['name' => 'PDH', 'item_category_target_id' => '5']
+            ]);
+        
         ItemRoles::insert([
             [
                 'name' => 'Admin'
@@ -76,6 +205,24 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Staff'
             ]
+        ]);
+
+        ItemButgetSource::insert([
+            [
+                'name' => 'APBO'
+            ],
+            [
+                'name' => 'DPW'
+            ],
+            [
+                'name' => 'DPD'
+            ],
+            [
+                'name' => 'Badan dan Amal Usaha'
+            ],
+            [
+                'name' => 'Sponsor'
+            ],
         ]);
 
         DataDivision::insert([

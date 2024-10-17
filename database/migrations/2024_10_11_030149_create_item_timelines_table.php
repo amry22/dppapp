@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('proker_data_prokers', function (Blueprint $table) {
+        Schema::create('item_timelines', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('division_id')->constrained('data_divisions');
-            $table->foreignId('department_id')->nullable()->constrained('data_departments');
-            $table->integer('year');
-            $table->boolean('is_acc')->default('false');
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('proker_data_prokers');
+        Schema::dropIfExists('item_timelines');
     }
 };
